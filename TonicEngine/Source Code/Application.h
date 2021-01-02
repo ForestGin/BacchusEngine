@@ -6,6 +6,7 @@
 #include "Module.h"
 #include "Math.h" // Include MathGeoLib
 
+
 #include <vector>
 #include <list>
 #include <string>
@@ -23,6 +24,7 @@ class TextureImporter;
 class JsonImporter;
 class ModuleTime;
 class ModuleResources;
+class ModuleParticleManager;
 
 #define YELLOW_COLOR ImVec4(1.0f, 1.0f, 0.0f, 1.0f)
 #define GREY_COLOR ImVec4(0.7f, 0.7f, 0.7f, 1.0f)
@@ -49,6 +51,7 @@ public:
 	TextureImporter* tex_imp = nullptr;
 	ModuleTime* time = nullptr;
 	ModuleResources* resources = nullptr;
+	ModuleParticleManager* particle_manager = nullptr;
 
 	list<Module*> list_modules;
 

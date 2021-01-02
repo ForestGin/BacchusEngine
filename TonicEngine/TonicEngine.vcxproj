@@ -89,11 +89,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="ComponentBillboard.h" />
+    <ClInclude Include="Source Code\ComponentBillboard.h" />
     <ClInclude Include="Source Code\ComponentCamera.h" />
     <ClInclude Include="Source Code\Application.h" />
     <ClInclude Include="Source Code\Color.h" />
     <ClInclude Include="Source Code\Component.h" />
+    <ClInclude Include="Source Code\ComponentEmitter.h" />
     <ClInclude Include="Source Code\ComponentMesh.h" />
     <ClInclude Include="Source Code\ComponentTexture.h" />
     <ClInclude Include="Source Code\ComponentTransform.h" />
@@ -179,6 +180,7 @@
     <ClInclude Include="Source Code\MeshImporter.h" />
     <ClInclude Include="Source Code\ModuleCamera3D.h" />
     <ClInclude Include="Source Code\ModuleGui.h" />
+    <ClInclude Include="Source Code\ModuleParticleManager.h" />
     <ClInclude Include="Source Code\ModuleRenderer3D.h" />
     <ClInclude Include="Source Code\Module.h" />
     <ClInclude Include="Source Code\ModuleInput.h" />
@@ -197,6 +199,7 @@
     <ClInclude Include="Source Code\PanelResources.h" />
     <ClInclude Include="Source Code\PanelScene.h" />
     <ClInclude Include="Source Code\PanelState.h" />
+    <ClInclude Include="Source Code\Particle.h" />
     <ClInclude Include="Source Code\Resource.h" />
     <ClInclude Include="Source Code\ResourceMesh.h" />
     <ClInclude Include="Source Code\ResourceModel.h" />
@@ -212,11 +215,12 @@
     <ClInclude Include="Source Code\Timer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ComponentBillboard.cpp" />
+    <ClCompile Include="Source Code\ComponentBillboard.cpp" />
     <ClCompile Include="Source Code\ComponentCamera.cpp" />
     <ClCompile Include="Source Code\Application.cpp" />
     <ClCompile Include="Source Code\Color.cpp" />
     <ClCompile Include="Source Code\Component.cpp" />
+    <ClCompile Include="Source Code\ComponentEmitter.cpp" />
     <ClCompile Include="Source Code\ComponentMesh.cpp" />
     <ClCompile Include="Source Code\ComponentTexture.cpp" />
     <ClCompile Include="Source Code\ComponentTransform.cpp" />
@@ -270,6 +274,7 @@
     <ClCompile Include="Source Code\ModuleCamera3D.cpp" />
     <ClCompile Include="Source Code\ModuleGui.cpp" />
     <ClCompile Include="Source Code\ModuleInput.cpp" />
+    <ClCompile Include="Source Code\ModuleParticleManager.cpp" />
     <ClCompile Include="Source Code\ModuleRenderer3D.cpp" />
     <ClCompile Include="Source Code\ModuleResources.cpp" />
     <ClCompile Include="Source Code\ModuleSceneIntro.cpp" />
@@ -285,6 +290,7 @@
     <ClCompile Include="Source Code\PanelResources.cpp" />
     <ClCompile Include="Source Code\PanelScene.cpp" />
     <ClCompile Include="Source Code\PanelState.cpp" />
+    <ClCompile Include="Source Code\Particle.cpp" />
     <ClCompile Include="Source Code\Resource.cpp" />
     <ClCompile Include="Source Code\ResourceMesh.cpp" />
     <ClCompile Include="Source Code\ResourceModel.cpp" />

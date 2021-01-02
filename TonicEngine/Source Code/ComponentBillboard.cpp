@@ -1,5 +1,8 @@
 #include "ComponentBillboard.h"
 #include "ModuleGUI.h"
+#include "ModuleSceneIntro.h"
+#include "ModuleCamera3D.h"
+#include "GameObject.h"
 #include "Application.h"
 
 ComponentBillboard::ComponentBillboard(GameObject* GO) : Component(COMPONENT_TYPE::BILLBOARD, GO)
@@ -7,12 +10,12 @@ ComponentBillboard::ComponentBillboard(GameObject* GO) : Component(COMPONENT_TYP
 	type = COMPONENT_TYPE::BILLBOARD;
 	billboardtype = BILLBOARD_TYPE::NONE;
 
-	GO.componentsList.push_BAck(this)
+	GO->componentsList.push_back(this);
 }
 
 ComponentBillboard::~ComponentBillboard()
 {
-	gameObject->componentsList.remove(this);
+	/*gameObject->components.remove(this);*/
 }
 
 void ComponentBillboard::DrawInspector()
@@ -67,7 +70,7 @@ void ComponentBillboard::DrawInspector()
 	}
 }
 
-void ComponentBillboard::Update()
+bool ComponentBillboard::Update()
 {
 	if (billboardtype != BILLBOARD_TYPE::NONE) {
 
@@ -78,54 +81,56 @@ void ComponentBillboard::Update()
 
 		case BILLBOARD_TYPE::SCREEN:
 
-			z = -App->camera->compCamera->frustum.front;
+			/*z = -App->camera->compCamera->frustum.front;
 			y = App->camera->compCamera->frustum.up;
 
-			x = y.Cross(z);
+			x = y.Cross(z);*/
 
 			break;
 
 		case BILLBOARD_TYPE::WORLD:
 
-			z = (App->camera->cameraGO->transform->GetGlobalPos() - gameObject->transform->GetGlobalPos()).Normalized();
+			/*z = (App->camera->cameraGO->transform->GetGlobalPos() - gameObject->transform->GetGlobalPos()).Normalized();
 			y = App->camera->compCamera->frustum.up;
 
 			x = y.Cross(z);
 
-			y = z.Cross(x);
+			y = z.Cross(x);*/
 
 			break;
 
 		case BILLBOARD_TYPE::AXIAL:
 
-			float3 dist = (App->camera->cameraGO->transform->GetGlobalPos() - gameObject->transform->GetGlobalPos()).Normalized();
+			/*float3 dist = (App->camera->cameraGO->transform->GetGlobalPos() - gameObject->transform->GetGlobalPos()).Normalized();*/
 			switch (billboardaxis) {
 
 			case BILLBOARD_AXIS::X:
 
-				z = gameObject->transform->GetGlobalRotation() * float3(0, 0, 1);
+				/*z = gameObject->transform->GetGlobalRotation() * float3(0, 0, 1);
 				y = z.Cross(dist);
 
-				x = y.Cross(z);
+				x = y.Cross(z);*/
 
 				break;
 			case BILLBOARD_AXIS::Y:
 
-				y = gameObject->transform->GetGlobalRotation() * float3(0, 1, 0);
+				/*y = gameObject->transform->GetGlobalRotation() * float3(0, 1, 0);
 				x = y.Cross(dist);
 
-				z = x.Cross(y);
+				z = x.Cross(y);*/
 
 				break;
 			case BILLBOARD_AXIS::Z:
 
-				x = gameObject->transform->GetGlobalRotation() * float3(1, 0, 0);
+				/*x = gameObject->transform->GetGlobalRotation() * float3(1, 0, 0);
 				y = dist.Cross(x);
 
-				z = x.Cross(y);
+				z = x.Cross(y);*/
 
 				break;
 			}
 		}
 	}
+
+	return true;
 }

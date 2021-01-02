@@ -2,9 +2,9 @@
 #define __C_BILLBOARD_H__
 
 #include "Component.h"
-#include "GameObject.h"
 
-class GameObject;
+
+//class GameObject;
 
 enum class BILLBOARD_TYPE
 {
@@ -30,7 +30,7 @@ public:
 
 	void DrawInspector();
 
-	void Update();
+	bool Update();
 
 
 public:

@@ -13,6 +13,7 @@
 #include "JsonImporter.h"
 #include "ModuleTime.h"
 #include "ModuleResources.h"
+#include "ModuleParticleManager.h"
 
 Application::Application()
 {
@@ -27,6 +28,7 @@ Application::Application()
 	tex_imp = new TextureImporter(this);
 	time = new ModuleTime(this);
 	resources = new ModuleResources(this);
+	particle_manager = new ModuleParticleManager(this);
 
 	// The order of calls is very important!
 	// Modules will Init() Start() and Update in this order
@@ -45,6 +47,7 @@ Application::Application()
 	AddModule(scene_intro);
 	AddModule(gui);
 	AddModule(resources);
+	AddModule(particle_manager);
 
 	// Renderer last!
 	AddModule(renderer3D);

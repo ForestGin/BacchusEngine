@@ -12,7 +12,8 @@ enum class COMPONENT_TYPE
 	MESH,
 	TEXTURE, 
 	CAMERA,
-	BILLBOARD
+	BILLBOARD,
+	EMITTER
 };
 
 class Component

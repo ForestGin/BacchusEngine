@@ -76,6 +76,7 @@ bool PanelInspector::Draw()
 
 					}
 					ImGui::MenuItem("Cancel");
+					ImGui::EndMenu();
 				}
 			}
 			else
