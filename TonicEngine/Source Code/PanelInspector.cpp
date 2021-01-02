@@ -1,8 +1,10 @@
+#include "Application.h"
 #include "PanelInspector.h"
 #include "ModuleGUI.h"
 #include "ModuleWindow.h"
 #include "ModuleSceneIntro.h"
 #include "Component.h"
+#include "ComponentBillboard.h"
 #include "GameObject.h"
 #include "ModuleCamera3D.h"
 
@@ -64,6 +66,17 @@ bool PanelInspector::Draw()
 					go->EnableGameObject();
 				else
 					go->DisableGameObject();
+
+				if (ImGui::BeginMenu("New Component"))
+				{
+					if (ImGui::MenuItem("Billboard"))
+					{
+						ComponentBillboard* billboard = new ComponentBillboard(App->scene_intro->GOselected);
+
+
+					}
+					ImGui::MenuItem("Cancel");
+				}
 			}
 			else
 			{

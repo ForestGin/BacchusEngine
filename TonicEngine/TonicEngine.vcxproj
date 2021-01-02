@@ -42,9 +42,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>Source Code\Libraries\DevIL\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\W10\Documents\GitHub\TonicEngine\TonicEngine\Source Code\Libraries\Assimp\libx86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>Source Code\Libraries\DevIL\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\W10\Documents\GitHub\TonicEngine\TonicEngine\Source Code\Libraries\Assimp\libx86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -87,6 +89,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ComponentBillboard.h" />
     <ClInclude Include="Source Code\ComponentCamera.h" />
     <ClInclude Include="Source Code\Application.h" />
     <ClInclude Include="Source Code\Color.h" />
@@ -209,6 +212,7 @@
     <ClInclude Include="Source Code\Timer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ComponentBillboard.cpp" />
     <ClCompile Include="Source Code\ComponentCamera.cpp" />
     <ClCompile Include="Source Code\Application.cpp" />
     <ClCompile Include="Source Code\Color.cpp" />
