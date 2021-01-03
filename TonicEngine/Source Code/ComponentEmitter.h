@@ -15,7 +15,7 @@ public:
 	ComponentEmitter(GameObject* parent);
 	~ComponentEmitter();
 
-	void Inspector();
+	void DrawInspector();
 
 	bool Update();
 
@@ -28,11 +28,13 @@ public:
 
 	float life = 0.0f;
 	float3 position = float3::zero;
-	float3 speed = float3::zero;
-	float2 rotation = float2::zero;
-	float size = 0.0f;
+	float speed = 1.0f;
+	float rotation = 0.0f;
+	float size = 1.0f;
 	ResourceTexture* texture = nullptr;
 	float4 color = float4::one;
+	std::string texPath;
+	float3 direction;
 
 	std::list<Particle*> particlesList;
 };

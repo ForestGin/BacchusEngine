@@ -5,6 +5,8 @@
 #include "ModuleSceneIntro.h"
 #include "Component.h"
 #include "ComponentBillboard.h"
+#include "ComponentEmitter.h"
+#include "ModuleParticleManager.h"
 #include "GameObject.h"
 #include "ModuleCamera3D.h"
 
@@ -74,6 +76,10 @@ bool PanelInspector::Draw()
 						ComponentBillboard* billboard = new ComponentBillboard(App->scene_intro->GOselected);
 
 
+					}
+					if (ImGui::MenuItem("Particle Emitter"))
+					{
+						ComponentEmitter* emitter = new ComponentEmitter(App->scene_intro->GOselected);
 					}
 					ImGui::MenuItem("Cancel");
 					ImGui::EndMenu();

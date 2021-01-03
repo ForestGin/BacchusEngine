@@ -200,6 +200,7 @@
     <ClInclude Include="Source Code\PanelScene.h" />
     <ClInclude Include="Source Code\PanelState.h" />
     <ClInclude Include="Source Code\Particle.h" />
+    <ClInclude Include="Source Code\ParticlePlane.h" />
     <ClInclude Include="Source Code\Resource.h" />
     <ClInclude Include="Source Code\ResourceMesh.h" />
     <ClInclude Include="Source Code\ResourceModel.h" />
@@ -291,6 +292,7 @@
     <ClCompile Include="Source Code\PanelScene.cpp" />
     <ClCompile Include="Source Code\PanelState.cpp" />
     <ClCompile Include="Source Code\Particle.cpp" />
+    <ClCompile Include="Source Code\ParticlePlane.cpp" />
     <ClCompile Include="Source Code\Resource.cpp" />
     <ClCompile Include="Source Code\ResourceMesh.cpp" />
     <ClCompile Include="Source Code\ResourceModel.cpp" />

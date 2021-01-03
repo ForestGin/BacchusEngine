@@ -442,6 +442,9 @@
     <ClInclude Include="Source Code\ComponentEmitter.h">
       <Filter>Sources\GameObject\Components</Filter>
     </ClInclude>
+    <ClInclude Include="Source Code\ParticlePlane.h">
+      <Filter>Sources\Particles</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source Code\ComponentMesh.cpp">
@@ -698,6 +701,9 @@
     </ClCompile>
     <ClCompile Include="Source Code\ComponentEmitter.cpp">
       <Filter>Sources\GameObject\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\ParticlePlane.cpp">
+      <Filter>Sources\Particles</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
