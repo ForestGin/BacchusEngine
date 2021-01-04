@@ -4,7 +4,7 @@
    you may not use this file except in compliance with the License.
    You may obtain a copy of the License at
 
-       http://www.apache.org/licenses/LICENSE-2.0
+	   http://www.apache.org/licenses/LICENSE-2.0
 
    Unless required by applicable law or agreed to in writing, software
    distributed under the License is distributed on an "AS IS" BASIS,
@@ -12,9 +12,9 @@
    See the License for the specific language governing permissions and
    limitations under the License. */
 
-/** @file Circle.cpp
-	@author Jukka Jylänki
-	@brief Implementation for the Circle geometry object. */
+   /** @file Circle.cpp
+	   @author Jukka Jylänki
+	   @brief Implementation for the Circle geometry object. */
 #include "Circle.h"
 #include "Plane.h"
 #include "../Math/MathFunc.h"
@@ -25,6 +25,7 @@
 #include "OBB.h"
 #include "LineSegment.h"
 #include "Line.h"
+#include "../Algorithm/Random/LCG.h"
 
 #ifdef MATH_ENABLE_STL_SUPPORT
 #include <iostream>
@@ -32,10 +33,10 @@
 
 MATH_BEGIN_NAMESPACE
 
-Circle::Circle(const float3 &center, const float3 &n, float radius)
-:pos(center),
-normal(n),
-r(radius)
+Circle::Circle(const float3& center, const float3& n, float radius)
+	:pos(center),
+	normal(n),
+	r(radius)
 {
 }
 
@@ -59,7 +60,7 @@ float3 Circle::GetPoint(float angleRadians, float d) const
 	return pos + r * d * (Cos(angleRadians) * BasisU() + Sin(angleRadians) * BasisV());
 }
 
-float3 Circle::ExtremePoint(const float3 &direction) const
+float3 Circle::ExtremePoint(const float3& direction) const
 {
 	float3 d = direction - direction.ProjectToNorm(normal);
 	if (d.IsZero())
@@ -73,12 +74,18 @@ Plane Circle::ContainingPlane() const
 	return Plane(pos, normal);
 }
 
-void Circle::Translate(const float3 &offset)
+float3 Circle::RandomPointInside(LCG& rng) const
+{
+	assume(r > 1e-3f);
+	return GetPoint(rng.Float(-pi, pi));
+}
+
+void Circle::Translate(const float3& offset)
 {
 	pos += offset;
 }
 
-void Circle::Transform(const float3x3 &transform)
+void Circle::Transform(const float3x3& transform)
 {
 	assume(transform.HasUniformScale());
 	assume(transform.IsColOrthogonal());
@@ -87,7 +94,7 @@ void Circle::Transform(const float3x3 &transform)
 	r *= transform.Col(0).Length(); // Scale the radius of the circle.
 }
 
-void Circle::Transform(const float3x4 &transform)
+void Circle::Transform(const float3x4& transform)
 {
 	assume(transform.HasUniformScale());
 	assume(transform.IsColOrthogonal());
@@ -96,7 +103,7 @@ void Circle::Transform(const float3x4 &transform)
 	r *= transform.Col(0).Length(); // Scale the radius of the circle.
 }
 
-void Circle::Transform(const float4x4 &transform)
+void Circle::Transform(const float4x4& transform)
 {
 	assume(transform.HasUniformScale());
 	assume(transform.IsColOrthogonal3());
@@ -105,13 +112,13 @@ void Circle::Transform(const float4x4 &transform)
 	r *= transform.Col3(0).Length(); // Scale the radius of the circle.
 }
 
-void Circle::Transform(const Quat &transform)
+void Circle::Transform(const Quat& transform)
 {
 	pos = transform.Mul(pos);
 	normal = transform.Mul(normal);
 }
 
-bool Circle::EdgeContains(const float3 &point, float maxDistance) const
+bool Circle::EdgeContains(const float3& point, float maxDistance) const
 {
 	return DistanceToEdge(point) <= maxDistance;
 }
@@ -122,7 +129,7 @@ bool Circle::DiscContains(const float3 &point, float maxDistance) const
 }
 
 */
-float Circle::DistanceToEdge(const float3 &point) const
+float Circle::DistanceToEdge(const float3& point) const
 {
 	return ClosestPointToEdge(point).Distance(point);
 }
@@ -160,12 +167,12 @@ float Circle::DistanceToEdge(const Line &line, float *d, float3 *closestPoint) c
 	return cp.Distance(line.GetPoint(t));
 }
 */
-float Circle::DistanceToDisc(const float3 &point) const
+float Circle::DistanceToDisc(const float3& point) const
 {
 	return ClosestPointToDisc(point).Distance(point);
 }
 
-float3 Circle::ClosestPointToEdge(const float3 &point) const
+float3 Circle::ClosestPointToEdge(const float3& point) const
 {
 	float3 pointOnPlane = ContainingPlane().Project(point);
 	float3 diff = pointOnPlane - pos;
@@ -174,65 +181,65 @@ float3 Circle::ClosestPointToEdge(const float3 &point) const
 	return pos + diff.ScaledToLength(r);
 }
 
-float3 Circle::ClosestPointToDisc(const float3 &point) const
+float3 Circle::ClosestPointToDisc(const float3& point) const
 {
 	float3 pointOnPlane = ContainingPlane().Project(point);
 	float3 diff = pointOnPlane - pos;
 	float dist = diff.LengthSq();
-	if (dist > r*r)
+	if (dist > r * r)
 		diff = diff * (r / Sqrt(dist));
 
 	return pos + diff;
 }
 
-int Circle::Intersects(const Plane &plane, float3 *pt1, float3 *pt2) const
+int Circle::Intersects(const Plane& plane, float3* pt1, float3* pt2) const
 {
 	return plane.Intersects(*this, pt1, pt2);
 }
 
-int Circle::Intersects(const Plane &plane) const
+int Circle::Intersects(const Plane& plane) const
 {
 	return plane.Intersects(*this);
 }
 
-bool Circle::IntersectsDisc(const Line &line) const
+bool Circle::IntersectsDisc(const Line& line) const
 {
 	float d;
 	bool intersectsPlane = line.Intersects(ContainingPlane(), &d);
 	if (intersectsPlane)
 		return false;
-	return line.GetPoint(d).DistanceSq(pos) <= r*r;
+	return line.GetPoint(d).DistanceSq(pos) <= r * r;
 }
 
-bool Circle::IntersectsDisc(const LineSegment &lineSegment) const
+bool Circle::IntersectsDisc(const LineSegment& lineSegment) const
 {
 	float d;
 	bool intersectsPlane = lineSegment.Intersects(ContainingPlane(), &d);
 	if (intersectsPlane)
 		return false;
-	return lineSegment.GetPoint(d).DistanceSq(pos) <= r*r;
+	return lineSegment.GetPoint(d).DistanceSq(pos) <= r * r;
 }
 
-bool Circle::IntersectsDisc(const Ray &ray) const
+bool Circle::IntersectsDisc(const Ray& ray) const
 {
 	float d;
 	bool intersectsPlane = ray.Intersects(ContainingPlane(), &d);
 	if (intersectsPlane)
 		return false;
-	return ray.GetPoint(d).DistanceSq(pos) <= r*r;
+	return ray.GetPoint(d).DistanceSq(pos) <= r * r;
 }
 
 #ifdef MATH_ENABLE_STL_SUPPORT
-std::vector<float3> Circle::IntersectsFaces(const AABB &aabb) const
+std::vector<float3> Circle::IntersectsFaces(const AABB& aabb) const
 {
-    return IntersectsFaces(aabb.ToOBB());
+	return IntersectsFaces(aabb.ToOBB());
 }
 
-std::vector<float3> Circle::IntersectsFaces(const OBB &obb) const
+std::vector<float3> Circle::IntersectsFaces(const OBB& obb) const
 {
 	std::vector<float3> intersectionPoints;
-	for(int i = 0; i < 6; ++i)
-	{		
+	for (int i = 0; i < 6; ++i)
+	{
 		Plane p = obb.FacePlane(i);
 		float3 pt1, pt2;
 		int numIntersections = Intersects(p, &pt1, &pt2);
@@ -247,12 +254,12 @@ std::vector<float3> Circle::IntersectsFaces(const OBB &obb) const
 std::string Circle::ToString() const
 {
 	char str[256];
-	sprintf(str, "Circle(pos:(%.2f, %.2f, %.2f) normal:(%.2f, %.2f, %.2f), r:%.2f)",
+	sprintf_s(str, 256, "Circle(pos:(%.2f, %.2f, %.2f) normal:(%.2f, %.2f, %.2f), r:%.2f)",
 		pos.x, pos.y, pos.z, normal.x, normal.y, normal.z, r);
 	return str;
 }
 
-std::ostream &operator <<(std::ostream &o, const Circle &circle)
+std::ostream& operator <<(std::ostream& o, const Circle& circle)
 {
 	o << circle.ToString();
 	return o;
@@ -260,28 +267,28 @@ std::ostream &operator <<(std::ostream &o, const Circle &circle)
 
 #endif
 
-Circle operator *(const float3x3 &transform, const Circle &circle)
+Circle operator *(const float3x3& transform, const Circle& circle)
 {
 	Circle c(circle);
 	c.Transform(transform);
 	return c;
 }
 
-Circle operator *(const float3x4 &transform, const Circle &circle)
+Circle operator *(const float3x4& transform, const Circle& circle)
 {
 	Circle c(circle);
 	c.Transform(transform);
 	return c;
 }
 
-Circle operator *(const float4x4 &transform, const Circle &circle)
+Circle operator *(const float4x4& transform, const Circle& circle)
 {
 	Circle c(circle);
 	c.Transform(transform);
 	return c;
 }
 
-Circle operator *(const Quat &transform, const Circle &circle)
+Circle operator *(const Quat& transform, const Circle& circle)
 {
 	Circle c(circle);
 	c.Transform(transform);

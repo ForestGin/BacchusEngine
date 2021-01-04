@@ -50,11 +50,11 @@ public:
 };
 
 // ============================================
-class Sphere : public Primitive
+class P_Sphere : public Primitive
 {
 public:
-	Sphere();
-	Sphere(float radius);
+	P_Sphere();
+	P_Sphere(float radius);
 public:
 	float radius;
 };

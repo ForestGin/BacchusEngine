@@ -1,7 +1,8 @@
 #include "Particle.h"
-#include "ModuleParticleManager.h"
 #include "Globals.h"
 #include "Application.h"
+#include "ModuleCamera3D.h"
+#include "ModuleParticleManager.h"
 
 
 Particle::Particle()
@@ -45,19 +46,18 @@ void Particle::Update(float dt)
 		active = false;
 	}
 
-	ownRotation.Mul(Quat::RotateZ(rotation));
+	/*ownRotation.Mul(Quat::RotateZ(rotation));*/
 
 }
 
 void Particle::CameraOrientation()
 {
 
-	/*float3 z = -App->camera->compCamera->frustum.front;
-	float3 y = App->camera->compCamera->frustum.up;
-
+	float3 z = -App->camera->activeCam->frustum.front;
+	float3 y = App->camera->activeCam->frustum.up;
 	float3 x = y.Cross(z);
 
-	ownRotation.Set(float3x3(x, y, z));*/
+	ownRotation.Set(float3x3(x, y, z));
 
 }
 

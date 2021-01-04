@@ -1,4 +1,6 @@
 #include "ModuleParticleManager.h"
+#include "Application.h"
+
 
 
 
@@ -48,6 +50,14 @@ update_status ModuleParticleManager::Update()
 
 	}
 
+	for (int i = 0; i < MAX_PARTICLES; ++i)
+	{
+		if (particles[i].active)
+		{
+			particles[i].Update(App->dt);
+		}
+	}
+
 	Draw();
 
 	return UPDATE_CONTINUE;
@@ -66,4 +76,12 @@ bool ModuleParticleManager::Draw()
 
 	return true;
 
+}
+
+void ModuleParticleManager::StartEmitters()
+{
+	for (std::list<ComponentEmitter*>::iterator iterator = emitters.begin(); iterator != emitters.end(); ++iterator)
+	{
+		(*iterator)->Start();
+	}
 }

@@ -44,6 +44,11 @@ ParticlePlane::ParticlePlane()
 
 ParticlePlane::~ParticlePlane()
 {
+
+	glDeleteBuffers(1, (GLuint*)&(indexID));
+	glDeleteBuffers(1, (GLuint*)&(vertexID));
+
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
 }
 
 void ParticlePlane::Draw(float4x4 matrix, ResourceTexture* texture, float4 color)

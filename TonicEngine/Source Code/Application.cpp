@@ -195,6 +195,7 @@ bool Application::PlayScene()
 			camera->activeCam->update_frustum = true;
 			ChangeEngineState(ENGINE_STATE::PLAY);
 			time->started_timer = time->GetCurrentTimer();
+			App->particle_manager->StartEmitters();
 			LOG_C("PLAYMODE: Running");
 			return true;
 		}

@@ -115,6 +115,8 @@ public:
 	void LoadJSON();
 	void SaveJSON();
 
+	LCG random;
+
 private:
 
 	void AddModule(Module* mod);

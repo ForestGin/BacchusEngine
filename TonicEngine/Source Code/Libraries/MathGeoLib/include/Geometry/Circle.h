@@ -4,7 +4,7 @@
    you may not use this file except in compliance with the License.
    You may obtain a copy of the License at
 
-       http://www.apache.org/licenses/LICENSE-2.0
+	   http://www.apache.org/licenses/LICENSE-2.0
 
    Unless required by applicable law or agreed to in writing, software
    distributed under the License is distributed on an "AS IS" BASIS,
@@ -12,9 +12,9 @@
    See the License for the specific language governing permissions and
    limitations under the License. */
 
-/** @file Circle.h
-	@author Jukka Jylänki
-	@brief The Circle geometry object. */
+   /** @file Circle.h
+	   @author Jukka Jylänki
+	   @brief The Circle geometry object. */
 #pragma once
 
 #include "../MathGeoLibFwd.h"
@@ -58,7 +58,7 @@ public:
 			this constructor will not normalize the vector for you (for performance reasons).
 		@param radius The radius of the circle.
 		@see pos, normal, r. */
-	Circle(const float3 &center, const float3 &normal, float radius);
+	Circle(const float3& center, const float3& normal, float radius);
 
 	/// Returns a normalized direction vector to the 'U direction' of the circle.
 	/** This vector lies on the plane of this circle.
@@ -99,27 +99,31 @@ public:
 			be unnormalized, but may not be null.
 		@return An extreme point of this Circle/Disc in the given direction. The returned point is always at
 			the edge of this Circle. */
-	float3 ExtremePoint(const float3 &direction) const;
+	float3 ExtremePoint(const float3& direction) const;
 
 	/// Computes the plane this circle is contained in.
 	/** All the points of this circle lie inside this plane.
 		@see class Plane. */
 	Plane ContainingPlane() const;
 
+	/// Generates a random point inside this Circle.
+	/** @see class LCG */
+	float3 RandomPointInside(LCG& rng) const;
+
 	/// Translates this Circle in world space.
 	/** @param offset The amount of displacement to apply to this Circle, in world space coordinates.
 		@see Transform(). */
-	void Translate(const float3 &offset);
+	void Translate(const float3& offset);
 
 	/// Applies a transformation to this Circle.
 	/** @param transform The transformation to apply to this Circle. This transformation must be
 		affine, and must contain an orthogonal set of column vectors (may not contain shear or projection).
 		The transformation can only contain uniform scale, and may not contain mirroring.
 		@see Translate(), Scale(), classes float3x3, float3x4, float4x4, Quat. */
-	void Transform(const float3x3 &transform);
-	void Transform(const float3x4 &transform);
-	void Transform(const float4x4 &transform);
-	void Transform(const Quat &transform);
+	void Transform(const float3x3& transform);
+	void Transform(const float3x4& transform);
+	void Transform(const float4x4& transform);
+	void Transform(const Quat& transform);
 
 	/// Tests if the given point is contained at the edge of this circle.
 	/** @param point The target point to test.
@@ -127,7 +131,7 @@ public:
 			for this test.
 		@see DistanceToEdge(), DistanceToDisc(), ClosestPointToEdge(), ClosestPointToDisc().
 		@todo Implement DiscContains(float3/LineSegment/Triangle). */
-	bool EdgeContains(const float3 &point, float maxDistance = 1e-6f) const;
+	bool EdgeContains(const float3& point, float maxDistance = 1e-6f) const;
 
 	// Returns true if the given point lies inside this filled circle.
 	// @param maxDistance The epsilon threshold to test the distance against.
@@ -139,46 +143,46 @@ public:
 		@return The distance of the given point to the edge of this circle. If the point is contained on this circle,
 			the value 0 is returned.
 		@see DistanceToDisc(), ClosestPointToEdge(), ClosestPointToDisc(). */
-	float DistanceToEdge(const float3 &point) const;
-//	float DistanceToEdge(const Ray &ray, float *d, float3 *closestPoint) const;
-//	float DistanceToEdge(const LineSegment &lineSegment, float *d, float3 *closestPoint) const;
-//	float DistanceToEdge(const Line &line, float *d, float3 *closestPoint) const;
+	float DistanceToEdge(const float3& point) const;
+	//	float DistanceToEdge(const Ray &ray, float *d, float3 *closestPoint) const;
+	//	float DistanceToEdge(const LineSegment &lineSegment, float *d, float3 *closestPoint) const;
+	//	float DistanceToEdge(const Line &line, float *d, float3 *closestPoint) const;
 
-	/// Computes the distance of the given object to this disc (filled circle).
-	/** If the point is contained inside this disc, the value 0 is returned.
-		@see DistanceToEdge(), ClosestPointToEdge(), ClosestPointToDisc().
-		@todo Implement DistanceToDisc(Ray/LineSegment/Line). */
-	float DistanceToDisc(const float3 &point) const;
-/*
-	float DistanceToDisc(const Ray &ray, float *d, float3 *closestPoint) const;
-	float DistanceToDisc(const LineSegment &lineSegment, float *d, float3 *closestPoint) const;
-	float DistanceToDisc(const Line &line, float *d, float3 *closestPoint) const;
-*/
+		/// Computes the distance of the given object to this disc (filled circle).
+		/** If the point is contained inside this disc, the value 0 is returned.
+			@see DistanceToEdge(), ClosestPointToEdge(), ClosestPointToDisc().
+			@todo Implement DistanceToDisc(Ray/LineSegment/Line). */
+	float DistanceToDisc(const float3& point) const;
+	/*
+		float DistanceToDisc(const Ray &ray, float *d, float3 *closestPoint) const;
+		float DistanceToDisc(const LineSegment &lineSegment, float *d, float3 *closestPoint) const;
+		float DistanceToDisc(const Line &line, float *d, float3 *closestPoint) const;
+	*/
 	/// Computes the closest point on the edge of this circle to the given point.
 	/** @todo Implement ClosestPointToEdge(Ray/LineSegment/Line).
 		@see DistanceToEdge(), DistanceToDisc(), ClosestPointToDisc(). */
-	float3 ClosestPointToEdge(const float3 &point) const;
-//	float3 ClosestPointToEdge(const Ray &ray, float *d) const;
-//	float3 ClosestPointToEdge(const LineSegment &lineSegment, float *d) const;
-//	float3 ClosestPointToEdge(const Line &line, float *d) const;
+	float3 ClosestPointToEdge(const float3& point) const;
+	//	float3 ClosestPointToEdge(const Ray &ray, float *d) const;
+	//	float3 ClosestPointToEdge(const LineSegment &lineSegment, float *d) const;
+	//	float3 ClosestPointToEdge(const Line &line, float *d) const;
 
-	/// Computes the closest point on the disc of this circle to the given object.
-	/** @todo Implement ClosestPointToDisc(Ray/LineSegment/Line).
-		@see DistanceToEdge(), DistanceToDisc(), ClosestPointToEdge(). */
-	float3 ClosestPointToDisc(const float3 &point) const;
+		/// Computes the closest point on the disc of this circle to the given object.
+		/** @todo Implement ClosestPointToDisc(Ray/LineSegment/Line).
+			@see DistanceToEdge(), DistanceToDisc(), ClosestPointToEdge(). */
+	float3 ClosestPointToDisc(const float3& point) const;
 
 	/// Tests this circle for an intersection against the given plane.
 	/** @note For Circle-Plane intersection, there is no need to differentiate between a hollow or a filled circle (disc).
 		@return The number of intersection points found for this circle and the given plane.
 		@see IntersectsDisc(). */
-	int Intersects(const Plane &plane, float3 *pt1, float3 *pt2) const;
-	int Intersects(const Plane &plane) const;
+	int Intersects(const Plane& plane, float3* pt1, float3* pt2) const;
+	int Intersects(const Plane& plane) const;
 
 	/// Tests this disc for an intersection against the given object.
 	/** @see Intersects(). */
-	bool IntersectsDisc(const Line &line) const;
-	bool IntersectsDisc(const LineSegment &lineSegment) const;
-	bool IntersectsDisc(const Ray &ray) const;
+	bool IntersectsDisc(const Line& line) const;
+	bool IntersectsDisc(const LineSegment& lineSegment) const;
+	bool IntersectsDisc(const Ray& ray) const;
 
 #ifdef MATH_ENABLE_STL_SUPPORT
 	/// Tests if this circle intersects the faces of the given OBB.
@@ -187,11 +191,11 @@ public:
 		@return A vector that contains all the detected points of intersection for this circle and the given OBB. If the circle is fully
 			contained inside the OBB, or is fully outside the OBB, no intersection occurs, and the returned vector has zero elements.
 		@see Intersects(), IntersectsDisc(). */
-	std::vector<float3> IntersectsFaces(const OBB &obb) const;
+	std::vector<float3> IntersectsFaces(const OBB& obb) const;
 
-	std::vector<float3> IntersectsFaces(const AABB &aabb) const;
+	std::vector<float3> IntersectsFaces(const AABB& aabb) const;
 
-    /// Returns a human-readable representation of this circle. Most useful for debugging purposes.
+	/// Returns a human-readable representation of this circle. Most useful for debugging purposes.
 	/** The returned string specifies the center position, normal direction and the radius of this circle. */
 	std::string ToString() const;
 #endif
@@ -202,10 +206,10 @@ public:
 #endif
 };
 
-Circle operator *(const float3x3 &transform, const Circle &circle);
-Circle operator *(const float3x4 &transform, const Circle &circle);
-Circle operator *(const float4x4 &transform, const Circle &circle);
-Circle operator *(const Quat &transform, const Circle &circle);
+Circle operator *(const float3x3& transform, const Circle& circle);
+Circle operator *(const float3x4& transform, const Circle& circle);
+Circle operator *(const float4x4& transform, const Circle& circle);
+Circle operator *(const Quat& transform, const Circle& circle);
 
 #ifdef MATH_QT_INTEROP
 Q_DECLARE_METATYPE(Circle)
@@ -213,7 +217,7 @@ Q_DECLARE_METATYPE(Circle*)
 #endif
 
 #ifdef MATH_ENABLE_STL_SUPPORT
-std::ostream &operator <<(std::ostream &o, const Circle &circle);
+std::ostream& operator <<(std::ostream& o, const Circle& circle);
 #endif
 
 MATH_END_NAMESPACE
