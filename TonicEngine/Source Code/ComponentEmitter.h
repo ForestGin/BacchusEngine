@@ -29,7 +29,7 @@ public:
 
 	bool Update();
 
-	void ActiveParticle(int pos);
+	void ActiveParticle(int pos, bool isactive = false, float3 startposition = float3::zero);
 
 	void Clear();
 
@@ -57,6 +57,9 @@ public:
 	float4 color = float4::one;
 	std::string texPath;
 	float3 direction = float3::unitY;
+
+	bool isSubemitter = false;
+	bool startUpdate = true;
 
 	std::list<Particle*> particlesList;
 

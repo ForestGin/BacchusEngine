@@ -65,13 +65,13 @@ void ComponentEmitter::DrawInspector()
 
 		ImGui::Separator();
 
-		if (ImGui::DragFloat("Ratio", &ratio, 0.1f, 0.0f, 0.0f, "%.2f"))
+		if (ImGui::DragFloat("Time between particles", &ratio, 0.1f, 0.0f, 0.0f, "%.2f"))
 		{
 		}
 
 		ImGui::Separator();
 
-		if (ImGui::DragFloat("Burst Ratio", &burstRatio, 0.1f, 0.0f, 0.0f, "%.2f"))
+		if (ImGui::DragFloat("Time between bursts", &burstRatio, 0.1f, 0.0f, 0.0f, "%.2f"))
 		{
 		}
 
@@ -134,14 +134,14 @@ void ComponentEmitter::DrawInspector()
 				break;
 		}
 
-		ImGui::Separator();
+		/*ImGui::Separator();
 
 
 		if (texture)
 		{
 			ImGui::Text("%s", texPath.c_str());
 			ImGui::Image((ImTextureID*)texture->tex.id, ImVec2(310, 310), ImVec2(0, 1), ImVec2(1, 0), ImVec4(1.0f, 1.0f, 1.0f, 1.0f), ImVec4(1.0f, 1.0f, 1.0f, 0.5f));
-		}
+		}*/
 		
 
 		ImGui::Separator();
@@ -171,9 +171,6 @@ void ComponentEmitter::DrawInspector()
 
 bool ComponentEmitter::Update()
 {
-	float time = timer.Read();
-
-	float burstTime = timerBurst.Read();
 
 	if (object->GetComponentTexture() != nullptr)
 	{
@@ -182,34 +179,25 @@ bool ComponentEmitter::Update()
 	}
 
 
-	/*if (!subEmitter && subEmitterExists)
+	if (subEmitter && !subEmitterExists)
 	{
-		for (auto object : gameObject->childs)
-		{
-			if (object->HasComponent(CompEmitter))
-			{
-				gameObject->childs.remove(object);
-
-				App->game_object->gameObjectsToDelete.push_back(object);
-				for (auto child : object->childs)
-				{
-					App->imgui->inspector->NewObjectsToDelete(child);
-				}
-			}
-		}
-
-		subEmitterExists = false;
-	}
-	*/
-	/*if (subEmitter && !subEmitterExists)
-	{
-		GameObject* newEmitterGO = new GameObject(this->gameObject);
+		GameObject* newEmitterGO = new GameObject(object->data.name);
 		subEmitterComp = new ComponentEmitter(newEmitterGO);
 		subEmitterExists = true;
-	}*/
+		subEmitterComp->isSubemitter = true;
+		subEmitterComp->startUpdate = false;
+
+	}
+	if (isSubemitter)
+		startUpdate = false;
+	if (startUpdate != true)
+		return false;
 
 	if (ratio > 0.0f)
 	{
+
+		float time = timer.Read();
+
 		if (time >= ratio)
 		{
 			if (App->GetEngineState() == ENGINE_STATE::PLAY)
@@ -219,12 +207,15 @@ bool ComponentEmitter::Update()
 				particlesList.push_back(&App->particle_manager->particles[pos]);
 				App->particle_manager->particles[pos].emitterpart = this;
 				App->particle_manager->activeParticles++;
+				timer.Start();
 			}
 		}
 	}
 
 	if (burstRatio > 0.0f)
 	{
+		float burstTime = timerBurst.Read();
+
 		if (burstTime >= burstRatio)
 		{
 			if (App->GetEngineState() == ENGINE_STATE::PLAY)
@@ -232,11 +223,14 @@ bool ComponentEmitter::Update()
 				for (int i = 0; i < particlesBurst; ++i)
 				{
 					int pos = App->particle_manager->GetLastParticle();
-					App->particle_manager->particles[pos].SetActive(object->GetComponentTransform()->GetPosition(), speed, (float3::unitY * object->GetComponentTransform()->GetQuatRotation().ToFloat3x3()).Normalized(), rotation, size, life, &texture, color);
+					ActiveParticle(pos);
 					particlesList.push_back(&App->particle_manager->particles[pos]);
 					App->particle_manager->particles[pos].emitterpart = this;
 					App->particle_manager->activeParticles++;
+					
 				}
+
+				timerBurst.Start();
 			}
 		}
 	}
@@ -244,7 +238,7 @@ bool ComponentEmitter::Update()
 	return true;
 }
 
-void ComponentEmitter::ActiveParticle(int pos)
+void ComponentEmitter::ActiveParticle(int pos, bool isactive, float3 startposition)
 {
 	float3 randompoint = float3::zero;
 	float3 initialpos = float3::zero;
@@ -254,18 +248,24 @@ void ComponentEmitter::ActiveParticle(int pos)
 	{
 	case Cone_TYPE:
 		randompoint = circle.RandomPointInside(App->random);
-		initialpos = object->GetComponentTransform()->GetPosition();
+		if (isactive == false)initialpos = object->GetComponentTransform()->GetPosition();
+		else initialpos = startposition;
+		randompoint += initialpos;
 		directionvec = (randompoint - initialpos).Normalized();
 		App->particle_manager->particles[pos].SetActive(object->GetComponentTransform()->GetPosition(), speed, directionvec, rotation, size, life, &texture, color);
 		break;
 	case Sphere_TYPE:
 		randompoint = sphere.RandomPointInside(App->random);
-		initialpos = object->GetComponentTransform()->GetPosition();
+		if (isactive == false)initialpos = object->GetComponentTransform()->GetPosition();
+		else initialpos = startposition;
+		randompoint += initialpos;
 		directionvec = (randompoint - initialpos).Normalized();
 		App->particle_manager->particles[pos].SetActive(randompoint, speed, directionvec, rotation, size, life, &texture, color);
 		break;
 	case Box_TYPE:
 		randompoint = cube.RandomPointInside(App->random);
+		if (isactive == true) randompoint += startposition;
+		else randompoint += object->GetComponentTransform()->GetPosition();
 		App->particle_manager->particles[pos].SetActive(randompoint, speed, (float3::unitY * object->GetComponentTransform()->GetQuatRotation().ToFloat3x3()).Normalized(), rotation, size, life, &texture, color);
 		break;
 	default:
