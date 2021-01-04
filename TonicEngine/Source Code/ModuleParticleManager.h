@@ -23,7 +23,7 @@ public:
 	bool Draw();
 
 	void StartEmitters();
-
+	void ClearEmitters();
 
 public:
 	std::list<ComponentEmitter*> emitters;

@@ -31,6 +31,8 @@ public:
 
 	void ActiveParticle(int pos);
 
+	void Clear();
+
 	void Save(uint GO_id, nlohmann::json& scene_file);
 
 public:

@@ -7,6 +7,7 @@
 #include "Particle.h"
 #include "ResourceTexture.h"
 #include "PanelInspector.h"
+#include "Component.h"
 
 ComponentEmitter::ComponentEmitter(GameObject* parent) : Component(COMPONENT_TYPE::EMITTER, parent)
 {	
@@ -16,12 +17,15 @@ ComponentEmitter::ComponentEmitter(GameObject* parent) : Component(COMPONENT_TYP
 
 ComponentEmitter::~ComponentEmitter()
 {
+	App->particle_manager->emitters.remove(this);
 }
 
 bool ComponentEmitter::Start()
 {
 	timer.Start();
 	timerBurst.Start();
+
+	Clear();
 
 	return true;
 }
@@ -157,6 +161,9 @@ void ComponentEmitter::DrawInspector()
 			rotation = 0.0f;
 			size = 1.0f;
 			ratio = 0.0f;
+			life = 0.0f;
+			burstRatio = 0.0f;
+			particlesBurst = 0;
 		}
 
 	}
@@ -167,6 +174,13 @@ bool ComponentEmitter::Update()
 	float time = timer.Read();
 
 	float burstTime = timerBurst.Read();
+
+	if (object->GetComponentTexture() != nullptr)
+	{
+		ComponentTexture* tex = (ComponentTexture*)object->GetComponent(COMPONENT_TYPE::TEXTURE);
+		texture = tex->rTexture;
+	}
+
 
 	/*if (!subEmitter && subEmitterExists)
 	{
@@ -257,6 +271,15 @@ void ComponentEmitter::ActiveParticle(int pos)
 	default:
 		break;
 	}
+}
+
+void ComponentEmitter::Clear()
+{
+	for (auto particle : particlesList)
+	{
+		particle->active = false;
+	}
+	particlesList.clear();
 }
 
 void ComponentEmitter::Save(uint GO_id, nlohmann::json& scene_file)

@@ -65,6 +65,6 @@ void Particle::Draw()
 {
 	if (plane)
 	{
-		plane->Draw(float4x4::FromTRS(position, ownRotation, float3(size)), *texture, color);
+		plane->Draw(float4x4::FromTRS(position, ownRotation, float3(size)).Transposed(), *texture, color);
 	}
 }

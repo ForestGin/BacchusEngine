@@ -233,6 +233,7 @@ void Application::StopScene()
 		ChangeEngineState(ENGINE_STATE::NONE);
 		time->game_is_paused = false;
 		time->ResetGameTimer();
+		App->particle_manager->ClearEmitters();
 		LOG_C("PLAYMODE: Stopped");
 		break;
 	}

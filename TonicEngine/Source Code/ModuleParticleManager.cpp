@@ -85,3 +85,11 @@ void ModuleParticleManager::StartEmitters()
 		(*iterator)->Start();
 	}
 }
+
+void ModuleParticleManager::ClearEmitters()
+{
+	for (std::list<ComponentEmitter*>::iterator iterator = emitters.begin(); iterator != emitters.end(); ++iterator)
+	{
+		(*iterator)->Clear();
+	}
+}
