@@ -45,7 +45,8 @@ bool ModuleSceneIntro::Start()
 	App->camera->LookAt(float3(0, 0, 0));	
 
 	Create3DObject(OBJECTS3D::STREET);
-	Create3DObject(OBJECTS3D::SMOKE);
+	Create3DObject(OBJECTS3D::SMOKE1);
+	Create3DObject(OBJECTS3D::SMOKE2);
 
 	App->tex_imp->GenerateCheckersTexture();
 
@@ -398,19 +399,52 @@ void ModuleSceneIntro::Create3DObject(OBJECTS3D object)
 		App->mesh_imp->LoadFile("Assets/Street/Street_V04.fbx");
 		break;
 		
-	case OBJECTS3D::SMOKE:
+	case OBJECTS3D::SMOKE1:
+	{
 		GameObject* go = CreateGO("Emitter_1", GOroot);
 		go->CreateComponent(COMPONENT_TYPE::TEXTURE);
-		go->GetComponentTexture()->rTexture = (ResourceTexture*)App->resources->Get(App->resources->GetNewFile("Assets/Others/Lenna.png"));
+		go->GetComponentTexture()->rTexture = (ResourceTexture*)App->resources->Get(App->resources->GetNewFile("Assets/Others/smoke.png"));
 		if (go->GetComponentTexture()->rTexture != nullptr)
 			go->GetComponentTexture()->rTexture->LoadInMemory();
 
 		ComponentEmitter* emitter = new ComponentEmitter(go);
 		//SET PARAMETERS
+		emitter->life = 9.8f;
+		emitter->size = 1.9f;
+		emitter->ratio = 800.0f;
+		emitter->particlesBurst = 1.0f;
+		/*emitter->shapeType = Cone_TYPE;*/
+		emitter->heigh = 3.4f;
+		emitter->rad = 1.1f;
 		//SET POSITION
 
 		/*go->CreateComponent(COMPONENT_TYPE::EMITTER);*/
 		//ComponentEmitter* emitter = (ComponentEmitter*)go->GetComponent(COMPONENT_TYPE::EMITTER);
+	}
+		break;
+
+	case OBJECTS3D::SMOKE2:
+	{
+		GameObject* go_2 = CreateGO("Emitter_2", GOroot);
+		go_2->CreateComponent(COMPONENT_TYPE::TEXTURE);
+		go_2->GetComponentTexture()->rTexture = (ResourceTexture*)App->resources->Get(App->resources->GetNewFile("Assets/Others/smoke.png"));
+		if (go_2->GetComponentTexture()->rTexture != nullptr)
+			go_2->GetComponentTexture()->rTexture->LoadInMemory();
+
+		ComponentEmitter* emitter_2 = new ComponentEmitter(go_2);
+		//SET PARAMETERS
+		emitter_2->life = 9.8f;
+		emitter_2->size = 1.9f;
+		emitter_2->ratio = 800.0f;
+		emitter_2->particlesBurst = 1.0f;
+		/*emitter->shapeType = Cone_TYPE;*/
+		emitter_2->heigh = 3.4f;
+		emitter_2->rad = 1.1f;
+		//SET POSITION
+
+		/*go->CreateComponent(COMPONENT_TYPE::EMITTER);*/
+		//ComponentEmitter* emitter = (ComponentEmitter*)go->GetComponent(COMPONENT_TYPE::EMITTER);
+	}
 		break;
 
 	/*case OBJECTS3D::FIREWORK:
