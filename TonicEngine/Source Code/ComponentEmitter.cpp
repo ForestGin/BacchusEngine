@@ -134,14 +134,14 @@ void ComponentEmitter::DrawInspector()
 				break;
 		}
 
-		/*ImGui::Separator();
+		ImGui::Separator();
 
 
 		if (texture)
 		{
 			ImGui::Text("%s", texPath.c_str());
 			ImGui::Image((ImTextureID*)texture->tex.id, ImVec2(310, 310), ImVec2(0, 1), ImVec2(1, 0), ImVec4(1.0f, 1.0f, 1.0f, 1.0f), ImVec4(1.0f, 1.0f, 1.0f, 0.5f));
-		}*/
+		}
 		
 
 		ImGui::Separator();
@@ -174,6 +174,12 @@ bool ComponentEmitter::Update()
 
 	if (object->GetComponentTexture() != nullptr)
 	{
+		ComponentTexture* tex = (ComponentTexture*)object->GetComponent(COMPONENT_TYPE::TEXTURE);
+		texture = tex->rTexture;
+	}
+	else
+	{
+		object->CreateComponent(COMPONENT_TYPE::TEXTURE);
 		ComponentTexture* tex = (ComponentTexture*)object->GetComponent(COMPONENT_TYPE::TEXTURE);
 		texture = tex->rTexture;
 	}

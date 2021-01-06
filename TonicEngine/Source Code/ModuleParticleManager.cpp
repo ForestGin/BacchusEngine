@@ -39,7 +39,7 @@ int ModuleParticleManager::GetLastParticle()
 	return 0;
 }
 
-update_status ModuleParticleManager::Update()
+update_status ModuleParticleManager::Update(float dt)
 {
 
 

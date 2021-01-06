@@ -18,7 +18,7 @@ public:
 	bool Start();
 
 	int GetLastParticle();
-	update_status Update();
+	update_status Update(float dt);
 
 	bool Draw();
 
