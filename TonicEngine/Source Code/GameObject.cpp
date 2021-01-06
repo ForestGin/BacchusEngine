@@ -153,7 +153,12 @@ Component* GameObject::CreateComponent(COMPONENT_TYPE type, bool active)
 	case COMPONENT_TYPE::CAMERA:
 		component = new ComponentCamera(this);
 		break;
+	case COMPONENT_TYPE::EMITTER:
+		component = new ComponentEmitter(this);
+		break;
 	}
+	
+
 
 	if (component != nullptr) 
 	{

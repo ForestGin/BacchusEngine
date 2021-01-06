@@ -7,6 +7,7 @@
 #include "ComponentMesh.h"
 #include "ComponentTexture.h"
 #include "ComponentCamera.h"
+#include "ComponentEmitter.h"
 #include "ModuleInput.h"
 #include "imgui-1.78/ImGuizmo.h"
 
@@ -14,6 +15,7 @@ class ComponentTransform;
 class ComponentMesh;
 class ComponentTexture;
 class ComponentCamera;
+class ComponentEmitter;
 
 class ResourceModel;
 

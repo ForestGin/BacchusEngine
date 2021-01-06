@@ -18,8 +18,11 @@ enum class OBJECTS3D
 	GERALT,
 	ROCK,
 	BAKER_HOUSE,
-	STREET
+	STREET,
+	SMOKE,
+	FIREWORK
 };
+
 
 class ModuleSceneIntro : public Module
 {

@@ -11,6 +11,7 @@
 #include "ComponentTexture.h"
 #include "ModuleResources.h"
 #include "ModuleFileSystem.h"
+#include "ComponentEmitter.h"
 
 #include "SDL\include\SDL_opengl.h"
 #include <gl/GL.h>
@@ -44,6 +45,7 @@ bool ModuleSceneIntro::Start()
 	App->camera->LookAt(float3(0, 0, 0));	
 
 	Create3DObject(OBJECTS3D::STREET);
+	Create3DObject(OBJECTS3D::SMOKE);
 
 	App->tex_imp->GenerateCheckersTexture();
 
@@ -395,6 +397,25 @@ void ModuleSceneIntro::Create3DObject(OBJECTS3D object)
 	case OBJECTS3D::STREET:
 		App->mesh_imp->LoadFile("Assets/Street/Street_V04.fbx");
 		break;
+		
+	case OBJECTS3D::SMOKE:
+		GameObject* go = CreateGO("Emitter_1", GOroot);
+		go->CreateComponent(COMPONENT_TYPE::TEXTURE);
+		go->GetComponentTexture()->rTexture = (ResourceTexture*)App->resources->Get(App->resources->GetNewFile("Assets/Others/Lenna.png"));
+		if (go->GetComponentTexture()->rTexture != nullptr)
+			go->GetComponentTexture()->rTexture->LoadInMemory();
+
+		ComponentEmitter* emitter = new ComponentEmitter(go);
+		//SET PARAMETERS
+		//SET POSITION
+
+		/*go->CreateComponent(COMPONENT_TYPE::EMITTER);*/
+		//ComponentEmitter* emitter = (ComponentEmitter*)go->GetComponent(COMPONENT_TYPE::EMITTER);
+		break;
+
+	/*case OBJECTS3D::FIREWORK:
+		break;*/
+
 	}
 }
 
