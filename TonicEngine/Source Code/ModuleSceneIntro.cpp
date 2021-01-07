@@ -43,6 +43,10 @@ bool ModuleSceneIntro::Start()
 
 	App->camera->Move(float3(1.0f, 1.0f, 0.0f));
 	App->camera->LookAt(float3(0, 0, 0));	
+	/*App->camera->playCam->GetComponentTransform()->position.x = 45.0f;
+	App->camera->playCam->GetComponentTransform()->position.y = 15.0f;
+	App->camera->playCam->GetComponentTransform()->position.z = 27.5f;*/
+	/*App->camera->mainCam->LookAt(float3(45.0f, 15.0f, 27.5f));*/
 
 	Create3DObject(OBJECTS3D::STREET);
 	Create3DObject(OBJECTS3D::SMOKE1);
@@ -406,7 +410,7 @@ void ModuleSceneIntro::Create3DObject(OBJECTS3D object)
 		go->GetComponentTexture()->rTexture = (ResourceTexture*)App->resources->Get(App->resources->GetNewFile("Assets/Others/smoke.png"));
 		if (go->GetComponentTexture()->rTexture != nullptr)
 			go->GetComponentTexture()->rTexture->LoadInMemory();
-
+		
 		ComponentEmitter* emitter = new ComponentEmitter(go);
 		//SET PARAMETERS
 		emitter->life = 9.8f;
@@ -419,7 +423,9 @@ void ModuleSceneIntro::Create3DObject(OBJECTS3D object)
 		emitter->heigh = 3.4f;
 		emitter->rad = 1.1f;
 		//SET POSITION
-
+		go->GetComponentTransform()->position.x = 44.0f;
+		go->GetComponentTransform()->position.y = 12.4f;
+		go->GetComponentTransform()->position.z = 49.0f;
 		/*go->CreateComponent(COMPONENT_TYPE::EMITTER);*/
 		//ComponentEmitter* emitter = (ComponentEmitter*)go->GetComponent(COMPONENT_TYPE::EMITTER);
 	}
@@ -445,7 +451,9 @@ void ModuleSceneIntro::Create3DObject(OBJECTS3D object)
 		emitter_2->heigh = 3.4f;
 		emitter_2->rad = 1.1f;
 		//SET POSITION
-
+		go_2->GetComponentTransform()->position.x = 47.2f;
+		go_2->GetComponentTransform()->position.y = 12.4f;
+		go_2->GetComponentTransform()->position.z = 49.0f;
 		/*go->CreateComponent(COMPONENT_TYPE::EMITTER);*/
 		//ComponentEmitter* emitter = (ComponentEmitter*)go->GetComponent(COMPONENT_TYPE::EMITTER);
 	}
