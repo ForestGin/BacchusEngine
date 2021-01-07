@@ -414,6 +414,8 @@ void ModuleSceneIntro::Create3DObject(OBJECTS3D object)
 		emitter->ratio = 800.0f;
 		emitter->particlesBurst = 1.0f;
 		/*emitter->shapeType = Cone_TYPE;*/
+		emitter->circle.pos.y = 3.4f;
+		emitter->circle.r = 1.1f;
 		emitter->heigh = 3.4f;
 		emitter->rad = 1.1f;
 		//SET POSITION
@@ -438,6 +440,8 @@ void ModuleSceneIntro::Create3DObject(OBJECTS3D object)
 		emitter_2->ratio = 800.0f;
 		emitter_2->particlesBurst = 1.0f;
 		/*emitter->shapeType = Cone_TYPE;*/
+		emitter_2->circle.pos.y = 3.4f;
+		emitter_2->circle.r = 1.1f;
 		emitter_2->heigh = 3.4f;
 		emitter_2->rad = 1.1f;
 		//SET POSITION
