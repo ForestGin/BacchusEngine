@@ -42,11 +42,10 @@ bool ModuleSceneIntro::Start()
 	bool ret = true;
 
 	App->camera->Move(float3(1.0f, 1.0f, 0.0f));
-	App->camera->LookAt(float3(0, 0, 0));	
-	/*App->camera->playCam->GetComponentTransform()->position.x = 45.0f;
-	App->camera->playCam->GetComponentTransform()->position.y = 15.0f;
-	App->camera->playCam->GetComponentTransform()->position.z = 27.5f;*/
-	/*App->camera->mainCam->LookAt(float3(45.0f, 15.0f, 27.5f));*/
+	App->camera->LookAt(float3(0, 0, 0));
+	App->camera->playCam->GetComponentTransform()->SetPosition(float3(45.0f, 15.0f,70.0f));
+	App->camera->playCam->GetComponentTransform()->SetEulerRotation(float3(0.0f, 180.0f, 0.0f));
+	GOselected = App->camera->playCam;
 
 	Create3DObject(OBJECTS3D::STREET);
 	Create3DObject(OBJECTS3D::SMOKE1);
