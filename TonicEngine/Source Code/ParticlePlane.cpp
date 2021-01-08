@@ -73,7 +73,7 @@ void ParticlePlane::Draw(float4x4 matrix, ResourceTexture* texture, float4 color
 		glTexCoordPointer(2, GL_FLOAT, 0, NULL);
 
 		glEnable(GL_ALPHA_TEST);
-
+		glAlphaFunc(GL_GREATER, 0.1);
 		glBindTexture(GL_TEXTURE_2D, texture->tex.id);
 	}
 	glColor4f(color.x, color.y, color.z, color.w);

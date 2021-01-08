@@ -414,7 +414,7 @@ void ModuleSceneIntro::Create3DObject(OBJECTS3D object)
 		ComponentEmitter* emitter = new ComponentEmitter(go);
 		//SET PARAMETERS
 		emitter->life = 9.8f;
-		emitter->size = 1.9f;
+		emitter->size = 0.9f;
 		emitter->ratio = 800.0f;
 		emitter->particlesBurst = 1.0f;
 		/*emitter->shapeType = Cone_TYPE;*/
@@ -442,7 +442,7 @@ void ModuleSceneIntro::Create3DObject(OBJECTS3D object)
 		ComponentEmitter* emitter_2 = new ComponentEmitter(go_2);
 		//SET PARAMETERS
 		emitter_2->life = 9.8f;
-		emitter_2->size = 1.9f;
+		emitter_2->size = 0.9f;
 		emitter_2->ratio = 800.0f;
 		emitter_2->particlesBurst = 1.0f;
 		/*emitter->shapeType = Cone_TYPE;*/
