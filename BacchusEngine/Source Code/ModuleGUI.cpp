@@ -364,7 +364,7 @@ bool ModuleGUI::Draw()
 
 		if (ImGui::BeginMenu("Help"))
 		{
-			ImGui::MenuItem("About Tonic Engine", NULL, &Pabout->active);
+			ImGui::MenuItem("About Bacchus Engine", NULL, &Pabout->active);
 
 			ImGui::Separator();
 
@@ -427,7 +427,7 @@ bool ModuleGUI::Draw()
 			if (ImGui::IsItemHovered())
 			{
 				ImGui::BeginTooltip();
-				ImGui::TextColored(GREY_COLOR,"Tonic Engine/Game/Assets/Scenes/%s.json", finalName.c_str());
+				ImGui::TextColored(GREY_COLOR,"Bacchus Engine/Game/Assets/Scenes/%s.json", finalName.c_str());
 				ImGui::EndTooltip();
 			}
 
@@ -482,7 +482,7 @@ bool ModuleGUI::Draw()
 		if (ImGui::BeginPopupModal("Quit", &exitMenu, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoCollapse))
 		{
 
-			ImGui::Text("Exit from Tonic Engine?");
+			ImGui::Text("Exit from Bacchus Engine?");
 			ImGui::Spacing();
 
 			if (ImGui::Button("Yes", ImVec2(77.0f, 25.0f)))

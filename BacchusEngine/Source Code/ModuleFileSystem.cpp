@@ -61,7 +61,7 @@ bool ModuleFileSystem::Init()
 	LOG("Loading File System");
 	bool ret = true;
 
-	char* write_path = SDL_GetPrefPath("Xavi and Pol", "Tonic Engine");
+	char* write_path = SDL_GetPrefPath("Oscar and Pol", "Bacchus Engine");
 
 	SDL_free(write_path);
 
