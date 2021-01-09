@@ -1,9 +1,9 @@
 # Bacchus Engine
 
-[Tonic Engine](https://github.com/ForestGin/BacchusEngine) 
+ 
 A particle subsystem made by Pol Bosch & Oscar Larios that allows the creation of particle effects with textures.
 
-This subsystem was done starting from a FORK of the "TonicEngine" made by Pol Casaú and Xavi Marín.
+This subsystem was done starting from a FORK of the [Tonic Engine](https://github.com/ForestGin/BacchusEngine) made by Pol Casaú and Xavi Marín.
  
 All of us students of [CITM](https://www.citm.upc.edu/) in Barcelona during our [Game Design and Development Bachelor's Degree](https://www.citm.upc.edu/cat/estudis/grau-videojocs-bcn/).
 
