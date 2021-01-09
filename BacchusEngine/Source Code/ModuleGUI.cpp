@@ -369,15 +369,15 @@ bool ModuleGUI::Draw()
 			ImGui::Separator();
 
 			if (ImGui::MenuItem("Documentation"))
-				App->RequestBrowser("https://github.com/ForestGin/TonicEngine/blob/master/README.md");
+				App->RequestBrowser("https://github.com/ForestGin/BacchusEngine/blob/master/README.md");
 
 			if (ImGui::MenuItem("Download Latest Version"))
-				App->RequestBrowser("https://github.com/ForestGin/TonicEngine/releases");
+				App->RequestBrowser("https://github.com/ForestGin/BacchusEngine/releases");
 
 			ImGui::Separator();
 
 			if (ImGui::MenuItem("Report Bug"))
-				App->RequestBrowser("https://github.com/ForestGin/TonicEngine/issues");
+				App->RequestBrowser("https://github.com/ForestGin/BacchusEngine/issues");
 
 			ImGui::EndMenu();
 		}

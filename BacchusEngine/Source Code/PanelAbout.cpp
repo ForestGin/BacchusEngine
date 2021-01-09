@@ -45,7 +45,7 @@ bool PanelAbout::Draw()
 			if (ImGui::TreeNodeEx("Github Links", ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_SpanAvailWidth))
 			{
 				if (ImGui::Button("Repository"))
-					App->RequestBrowser("https://github.com/ForestGin/TonicEngine"); ImGui::SameLine();
+					App->RequestBrowser("https://github.com/ForestGin/BacchusEngine"); ImGui::SameLine();
 				if (ImGui::Button("Pol Bosch"))
 					App->RequestBrowser("https://github.com/Xulu-u"); ImGui::SameLine();
 				if (ImGui::Button("Oscar Larios"))
