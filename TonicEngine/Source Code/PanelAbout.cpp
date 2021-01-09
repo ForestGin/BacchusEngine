@@ -36,7 +36,7 @@ bool PanelAbout::Draw()
 		{
 			ImGui::Image((ImTextureID*)icon->tex.id, ImVec2(35, 35), ImVec2(0, 1), ImVec2(1, 0)); ImGui::SameLine();
 			
-			ImGui::Text("%s by Pol Casau and Xavi Marin", SDL_GetWindowTitle(App->window->window));
+			ImGui::Text("%s by Pol Bosch and Oscar Larios", SDL_GetWindowTitle(App->window->window));
 			ImGui::Separator();
 
 			ImGui::Text("This is a 3D Game Engine developed during our Game Design and Development Bachelor's Degree.");
@@ -45,11 +45,11 @@ bool PanelAbout::Draw()
 			if (ImGui::TreeNodeEx("Github Links", ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_SpanAvailWidth))
 			{
 				if (ImGui::Button("Repository"))
-					App->RequestBrowser("https://github.com/xavimarin35/TonicEngine"); ImGui::SameLine();
-				if (ImGui::Button("Pol Casau"))
-					App->RequestBrowser("https://github.com/Bullseye14"); ImGui::SameLine();
-				if (ImGui::Button("Xavi Marin"))
-					App->RequestBrowser("https://github.com/xavimarin35");
+					App->RequestBrowser("https://github.com/ForestGin/TonicEngine"); ImGui::SameLine();
+				if (ImGui::Button("Pol Bosch"))
+					App->RequestBrowser("https://github.com/Xulu-u"); ImGui::SameLine();
+				if (ImGui::Button("Oscar Larios"))
+					App->RequestBrowser("https://github.com/Megaoski");
 
 				ImGui::TreePop();
 			}
