@@ -1,8 +1,45 @@
-# Tonic Engine
+# Bacchus Engine
 
-[Tonic Engine](https://github.com/xavimarin35/TonicEngine) is a 3D Game Engine developed in C & C++ made by Pol Casaú and Xavi Marín, students of [CITM](https://www.citm.upc.edu/) in Barcelona during our [Game Design and Development Bachelor's Degree](https://www.citm.upc.edu/cat/estudis/grau-videojocs-bcn/).
+[Tonic Engine](https://github.com/ForestGin/BacchusEngine) 
+A particle subsystem made by Pol Bosch & Oscar Larios that allows the creation of particle effects with textures.
+
+This subsystem was done starting from a FORK of the "TonicEngine" made by Pol Casaú and Xavi Marín.
+ 
+All of us students of [CITM](https://www.citm.upc.edu/) in Barcelona during our [Game Design and Development Bachelor's Degree](https://www.citm.upc.edu/cat/estudis/grau-videojocs-bcn/).
 
 ## Features
+
+### Particles Subsystem
+
+**Emmiter creation**
+*Create an empty game object
+*Add Emmiter Component
+*Tweak values (optional)
+*Add texture (optional)
+*Press PLAY button on the engine.
+
+## Authors
+
+### Pol Bosch
+
+- Github: [Xulu_u](https://github.com/Xulu-u)
+	
+### Oscar Larios 
+
+- Github: [Megaoski](https://github.com/Megaoski)
+
+## Contact
+
+ Don't hesitate to visit:
+ - Our repository: https://github.com/ForestGin/BacchusEngine
+ 
+ Or contact us:
+ - Pol Bosch: pol.hcsob@gmail.com.com
+ - Oscar Larios: oscar_2596@hotmail.com
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+## Tonic Engine
 
 ### Windows
 
