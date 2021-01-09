@@ -12,11 +12,11 @@ All of us students of [CITM](https://www.citm.upc.edu/) in Barcelona during our 
 ### Particles Subsystem
 
 **Emmiter creation**
-*Create an empty game object
-*Add Emmiter Component
-*Tweak values (optional)
-*Add texture (optional)
-*Press PLAY button on the engine.
+* Create an empty game object
+* Add Emmiter Component
+* Tweak values (optional)
+* Add texture (optional)
+* Press PLAY button on the engine.
 
 ## Authors
 
