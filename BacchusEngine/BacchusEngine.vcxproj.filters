@@ -430,9 +430,6 @@
     <ClInclude Include="Source Code\PanelCameraPreview.h">
       <Filter>Sources\Modules\GUI\Panels</Filter>
     </ClInclude>
-    <ClInclude Include="Source Code\ComponentBillboard.h">
-      <Filter>Sources\GameObject\Components</Filter>
-    </ClInclude>
     <ClInclude Include="Source Code\ModuleParticleManager.h">
       <Filter>Sources\Particles</Filter>
     </ClInclude>
@@ -689,9 +686,6 @@
     </ClCompile>
     <ClCompile Include="Source Code\PanelCameraPreview.cpp">
       <Filter>Sources\Modules\GUI\Panels</Filter>
-    </ClCompile>
-    <ClCompile Include="Source Code\ComponentBillboard.cpp">
-      <Filter>Sources\GameObject\Components</Filter>
     </ClCompile>
     <ClCompile Include="Source Code\ModuleParticleManager.cpp">
       <Filter>Sources\Particles</Filter>

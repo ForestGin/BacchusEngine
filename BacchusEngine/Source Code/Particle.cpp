@@ -43,28 +43,10 @@ void Particle::Update(float dt)
 	{
 		deathpos = position;
 
-		if (emitterpart->subEmitter && emitterpart->subEmitterComp)
-		{
-			if (App->GetEngineState() == ENGINE_STATE::PLAY)
-			{
-				for (int i = 0; i < emitterpart->particlesBurst; ++i)
-				{
-					int pos = App->particle_manager->GetLastParticle();
-					emitterpart->subEmitterComp->ActiveParticle(pos, true, position);
-					emitterpart->subEmitterComp->startUpdate = true;
-					emitterpart->particlesList.push_back(&App->particle_manager->particles[pos]);
-					App->particle_manager->particles[pos].emitterpart = emitterpart->subEmitterComp;
-					App->particle_manager->activeParticles++;
-					this;
-				}
-			}
-		}
 		emitterpart->particlesList.remove(this);
 		App->particle_manager->activeParticles--;
 		active = false;
 	}
-
-	/*ownRotation.Mul(Quat::RotateZ(rotation));*/
 
 }
 

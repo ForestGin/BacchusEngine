@@ -4,7 +4,6 @@
 #include "ModuleWindow.h"
 #include "ModuleSceneIntro.h"
 #include "Component.h"
-#include "ComponentBillboard.h"
 #include "ComponentEmitter.h"
 #include "ModuleParticleManager.h"
 #include "GameObject.h"
@@ -71,12 +70,6 @@ bool PanelInspector::Draw()
 
 				if (ImGui::BeginMenu("New Component"))
 				{
-					if (ImGui::MenuItem("Billboard"))
-					{
-						ComponentBillboard* billboard = new ComponentBillboard(App->scene_intro->GOselected);
-
-
-					}
 					if (ImGui::MenuItem("Particle Emitter"))
 					{
 						ComponentEmitter* emitter = new ComponentEmitter(App->scene_intro->GOselected);

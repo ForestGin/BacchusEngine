@@ -148,11 +148,6 @@ void ComponentEmitter::DrawInspector()
 
 		ImGui::ColorPicker4("Color", &color.x);
 
-
-		ImGui::Separator();
-
-		ImGui::Checkbox("Subemitter", &subEmitter);
-
 		ImGui::Separator();
 
 		if (ImGui::Button("Reset##Particles"))
@@ -184,18 +179,6 @@ bool ComponentEmitter::Update()
 		texture = tex->rTexture;
 	}
 
-
-	if (subEmitter && !subEmitterExists)
-	{
-		GameObject* newEmitterGO = new GameObject(object->data.name);
-		subEmitterComp = new ComponentEmitter(newEmitterGO);
-		subEmitterExists = true;
-		subEmitterComp->isSubemitter = true;
-		subEmitterComp->startUpdate = false;
-
-	}
-	if (isSubemitter)
-		startUpdate = false;
 	if (startUpdate != true)
 		return false;
 

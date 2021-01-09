@@ -89,7 +89,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Source Code\ComponentBillboard.h" />
     <ClInclude Include="Source Code\ComponentCamera.h" />
     <ClInclude Include="Source Code\Application.h" />
     <ClInclude Include="Source Code\Color.h" />
@@ -216,7 +215,6 @@
     <ClInclude Include="Source Code\Timer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source Code\ComponentBillboard.cpp" />
     <ClCompile Include="Source Code\ComponentCamera.cpp" />
     <ClCompile Include="Source Code\Application.cpp" />
     <ClCompile Include="Source Code\Color.cpp" />

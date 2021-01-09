@@ -39,11 +39,6 @@ public:
 	Timer timer;
 	Timer timerBurst;
 
-	bool subEmitter = false;
-	bool subEmitterExists = false;
-
-	ComponentEmitter* subEmitterComp = nullptr;
-
 	float ratio = 0.f;
 	float burstRatio = 0.f;
 
@@ -58,7 +53,6 @@ public:
 	std::string texPath;
 	float3 direction = float3::unitY;
 
-	bool isSubemitter = false;
 	bool startUpdate = true;
 
 	std::list<Particle*> particlesList;
