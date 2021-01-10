@@ -5,6 +5,7 @@ Welcome to our Particle subsystem showcase website made by Pol Bosch & Oscar Lar
 The particles subsystem allows the creation of particle effects with textures.
 
 Link to latest [release](https://github.com/ForestGin/BacchusEngine/releases/tag/1.0)
+
 Link to [repository](https://github.com/ForestGin/BacchusEngine)
 
 ![Pol](/WebFiles/Pol_Bosch_small_blurred.png)
