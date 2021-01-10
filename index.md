@@ -1,12 +1,16 @@
 ## BacchusEngine
+![Pol](https://github.com/ForestGin/BacchusEngine/blob/gh-pages/WebFiles/Pol_Bosch_small_blurred.png)
+![Oscar](https://github.com/ForestGin/BacchusEngine/blob/gh-pages/WebFiles/oscarlarios.png)
 
-Welcome to our Particle subsystem showcase website.
-Made by Pol Bosch & Oscar Larios.
+
+Welcome to our Particle subsystem showcase website made by Pol Bosch & Oscar Larios.
+
+
 The particles subsystem allows the creation of particle effects with textures.
 
 ### How to:
 
-Once you have downloaded the engine and opened it.
+Once you have [downloaded the engine]() and opened it.
 
 ```markdown
 **Step 1:** Create empty game object.
@@ -16,16 +20,7 @@ Once you have downloaded the engine and opened it.
 **Step 3:** Tweak values.
 
 **Step 4:** Drag and drop texture.
-
-[Link](url) and ![Image](src)
 ```
+![gif1](https://github.com/ForestGin/BacchusEngine/blob/gh-pages/WebFiles/gif1.gif)
+![gif2](https://github.com/ForestGin/BacchusEngine/blob/gh-pages/WebFiles/gif2.gif)
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ForestGin/BacchusEngine/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
