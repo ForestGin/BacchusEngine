@@ -7,8 +7,10 @@ The particles subsystem allows the creation of particle effects with textures.
 Link to latest [release](https://github.com/ForestGin/BacchusEngine/releases/tag/1.0)
 Link to [repository](https://github.com/ForestGin/BacchusEngine)
 
-![Pol](https://github.com/ForestGin/BacchusEngine/blob/gh-pages/WebFiles/Pol_Bosch_small_blurred.png)
-![Oscar](https://github.com/ForestGin/BacchusEngine/blob/gh-pages/WebFiles/oscarlarios.png)
+![Pol](/WebFiles/Pol_Bosch_small_blurred.png)
+![Oscar](/WebFiles/oscarlarios.png)
+
+Showcase Video:
 
 [![Video](https://img.youtube.com/vi/tnQNi4Em-pI/0.jpg)](https://www.youtube.com/watch?v=tnQNi4Em-pI)
 
@@ -25,8 +27,8 @@ Once you have [downloaded the engine](https://github.com/ForestGin/BacchusEngine
 
 **Step 4:** Drag and drop texture.
 ```
-![gif1](https://github.com/ForestGin/BacchusEngine/blob/gh-pages/WebFiles/gif1.gif)
-![gif2](https://github.com/ForestGin/BacchusEngine/blob/gh-pages/WebFiles/gif2.gif)
+![gif1](/WebFiles/gif1.gif)
+![gif2](/WebFiles/gif2.gif)
 
 MIT License
 
