@@ -67,10 +67,7 @@ the created particle
 * New Time Manager (Options to PLAY STOP STEP)
 * Particle Emitter
 
-
-//////////////////////////////////////////////////////////////
-
-MIT License
+## MIT License
 
 Copyright (c) 2020 Pol Bosch Matesanz and Oscar Larios Lite
 
