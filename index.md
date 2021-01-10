@@ -21,16 +21,16 @@ the created particle
 ![gif2](/WebFiles/gif2.gif)
 
 ### Engine Funcionalities
-* * Creation of GO
-* * Creation of basic shapes(cube, sphere ...)
-* * Move rotate and scale GO
-* * Console
-* * Texture drag'n'drop
-* * Inspector
-* * Hierarchy of GO(deletion, reparenting etc)
-* * Creation of Camera GO
-* * Playmode
-* * Particle Emitter Component
+* Creation of GO
+* Creation of basic shapes(cube, sphere ...)
+* Move rotate and scale GO
+* Console
+* Texture drag'n'drop
+* Inspector
+* Hierarchy of GO(deletion, reparenting etc)
+* Creation of Camera GO
+* Playmode
+* Particle Emitter Component
 
 ## Pol Bosch
 [![Pol](/WebFiles/Pol_Bosch_small_blurred.png)](https://github.com/Xulu-u)
