@@ -34,7 +34,7 @@ the created particle
 ![gif2](/WebFiles/gif2.gif)
 
 ## Pol Bosch
-![Pol](/WebFiles/Pol_Bosch_small_blurred.png)
+[![Pol](/WebFiles/Pol_Bosch_small_blurred.png)](https://github.com/Xulu-u)
 * Docking
 * Imgui personalization of the engine
 * Libraries Integration
@@ -52,7 +52,7 @@ the created particle
 * Particle basic implmentation
 
 ## Oscar Larios
-![Oscar](/WebFiles/oscarlarios.png)
+[![Oscar](/WebFiles/oscarlarios.png)](https://github.com/Megaoski)
 * Initial GameObject and Component structure
 * Save & Load Editor Configuration
 * Load 3D Models through assimp (fbx format)
