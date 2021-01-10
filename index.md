@@ -8,30 +8,29 @@ Link to latest [release](https://github.com/ForestGin/BacchusEngine/releases/tag
 
 Link to [repository](https://github.com/ForestGin/BacchusEngine)
 
-Showcase Video:
+### Showcase Video:
 
 [![Video](https://img.youtube.com/vi/tnQNi4Em-pI/0.jpg)](https://www.youtube.com/watch?v=tnQNi4Em-pI)
 
-### How to:
-
-Once you have [downloaded the engine](https://github.com/ForestGin/BacchusEngine/releases/tag/1.0) and opened it.
-
-```markdown
-**Step 1:** Create empty game object.
-
-**Step 2:** Add Emitter component.
-
-**Step 3:** Tweak values.
-
-**Step 4:** Drag and drop texture.
-```
-
+### Particle System Funcionalities
 Bacchus Engine has the integration of a particle subsystem that allows the user to create particles at will by modifying 
 the particle emitter in the inspector and adding textures to it. Once the particle emitter has been modified, hit play to see
 the created particle
 
 ![gif1](/WebFiles/gif1.gif)
 ![gif2](/WebFiles/gif2.gif)
+
+### Engine Funcionalities
+* * Creation of GO
+* * Creation of basic shapes(cube, sphere ...)
+* * Move rotate and scale GO
+* * Console
+* * Texture drag'n'drop
+* * Inspector
+* * Hierarchy of GO(deletion, reparenting etc)
+* * Creation of Camera GO
+* * Playmode
+* * Particle Emitter Component
 
 ## Pol Bosch
 [![Pol](/WebFiles/Pol_Bosch_small_blurred.png)](https://github.com/Xulu-u)
