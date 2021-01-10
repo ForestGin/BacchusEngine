@@ -1,27 +1,21 @@
-## Welcome to GitHub Pages
+## BacchusEngine
 
-You can use the [editor on GitHub](https://github.com/ForestGin/BacchusEngine/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Welcome to our Particle subsystem showcase website.
+Made by Pol Bosch & Oscar Larios.
+The particles subsystem allows the creation of particle effects with textures.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### How to:
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Once you have downloaded the engine and opened it.
 
 ```markdown
-Syntax highlighted code block
+**Step 1:** Create empty game object.
 
-# Header 1
-## Header 2
-### Header 3
+**Step 2:** Add Emitter component.
 
-- Bulleted
-- List
+**Step 3:** Tweak values.
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
+**Step 4:** Drag and drop texture.
 
 [Link](url) and ![Image](src)
 ```
