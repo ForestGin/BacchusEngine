@@ -1,4 +1,4 @@
-## BacchusEngine
+# BacchusEngine
 
 Welcome to our Particle subsystem showcase website made by Pol Bosch & Oscar Larios.
 
@@ -8,11 +8,11 @@ Link to latest [release](https://github.com/ForestGin/BacchusEngine/releases/tag
 
 Link to [repository](https://github.com/ForestGin/BacchusEngine)
 
-### Showcase Video:
+## Showcase Video:
 
 [![Video](https://img.youtube.com/vi/tnQNi4Em-pI/0.jpg)](https://www.youtube.com/watch?v=tnQNi4Em-pI)
 
-### Particle System Funcionalities
+## Particle System Funcionalities
 Bacchus Engine has the integration of a particle subsystem that allows the user to create particles at will by modifying 
 the particle emitter in the inspector and adding textures to it. Once the particle emitter has been modified, hit play to see
 the created particle
@@ -20,7 +20,7 @@ the created particle
 ![gif1](/WebFiles/gif1.gif)
 ![gif2](/WebFiles/gif2.gif)
 
-### Engine Funcionalities
+## Engine Funcionalities
 * Creation of GO
 * Creation of basic shapes(cube, sphere ...)
 * Move rotate and scale GO
@@ -32,6 +32,7 @@ the created particle
 * Playmode
 * Particle Emitter Component
 
+# Members
 ## Pol Bosch
 [![Pol](/WebFiles/Pol_Bosch_small_blurred.png)](https://github.com/Xulu-u)
 * Docking
@@ -66,7 +67,9 @@ the created particle
 * New Time Manager (Options to PLAY STOP STEP)
 * Particle Emitter
 
-## MIT License
+# License
+
+MIT License
 
 Copyright (c) 2020 Pol Bosch Matesanz and Oscar Larios Lite
 
